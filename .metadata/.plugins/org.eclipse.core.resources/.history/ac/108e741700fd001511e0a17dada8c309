@@ -1,0 +1,61 @@
+/**
+ * 
+ */
+package tests;
+
+import com.neet.DiamondHunter.Entity.*;
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+/**
+ * Class that performs unit tests on the Animation class
+ * @author trevorforrey
+ * 
+ */
+public class AnimationTest {
+	
+	private Animation animation;
+
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@BeforeClass
+	public static void setUpBeforeClass() throws Exception {
+		System.out.println("Setting up Animation test");
+	}
+
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@AfterClass
+	public static void tearDownAfterClass() throws Exception {
+		System.out.println("Tearing down Animation test");
+	}
+
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@Before
+	public void setUp() throws Exception {
+		animation = new Animation();
+	}
+
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@After
+	public void tearDown() throws Exception {
+		animation = null;
+	}
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}

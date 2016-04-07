@@ -22,7 +22,6 @@ public class AnimationTest {
 	private Animation animation;
 
 	/**
-	 * Informs the tester that test object is being created
 	 * @throws java.lang.Exception
 	 */
 	@BeforeClass
@@ -31,7 +30,6 @@ public class AnimationTest {
 	}
 
 	/**
-	 * Informs tester that test object is being torn down
 	 * @throws java.lang.Exception
 	 */
 	@AfterClass
@@ -40,7 +38,6 @@ public class AnimationTest {
 	}
 
 	/**
-	 * Creates a new animation object for a unit test
 	 * @throws java.lang.Exception
 	 */
 	@Before
@@ -49,7 +46,6 @@ public class AnimationTest {
 	}
 
 	/**
-	 * Sets animation object to null to "clear" object before performing a new test
 	 * @throws java.lang.Exception
 	 */
 	@After

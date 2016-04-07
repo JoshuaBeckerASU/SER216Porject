@@ -22,7 +22,6 @@ public class AnimationTest {
 	private Animation animation;
 
 	/**
-	 * Informs the tester that test object is being created
 	 * @throws java.lang.Exception
 	 */
 	@BeforeClass
@@ -31,7 +30,6 @@ public class AnimationTest {
 	}
 
 	/**
-	 * Informs tester that test object is being torn down
 	 * @throws java.lang.Exception
 	 */
 	@AfterClass
@@ -40,7 +38,6 @@ public class AnimationTest {
 	}
 
 	/**
-	 * Creates a new animation object for a unit test
 	 * @throws java.lang.Exception
 	 */
 	@Before
@@ -49,7 +46,6 @@ public class AnimationTest {
 	}
 
 	/**
-	 * Sets animation object to null to "clear" object before performing a new test
 	 * @throws java.lang.Exception
 	 */
 	@After
@@ -59,7 +55,6 @@ public class AnimationTest {
 
 	/**
 	 * Tests hasPlayedOnce method of Animation class
-	 * hasPlayedOnce being true
 	 */
 	@Test
 	public void hasPlayedOnceTest() {
@@ -74,19 +69,6 @@ public class AnimationTest {
 	
 	/**
 	 * Tests hasPlayedOnce method of Animation class
-	 * hasPlayedOnce being false
-	 */
-	@Test
-	public void hasPlayedOnceTest2() {
-		
-		boolean actual = animation.hasPlayedOnce();
-		
-		assertFalse(actual);
-	}
-	
-	/**
-	 * Tests hasPlayedOnce method of Animation class
-	 * hasPlayedTest(2) being true
 	 */
 	@Test
 	public void hasPlayedTest() {
@@ -101,30 +83,6 @@ public class AnimationTest {
 		boolean actual = animation.hasPlayed(2);
 		
 		assertTrue(actual);
-	}
-	
-	/**
-	 * Tests hasPlayedOnce method of Animation class
-	 * hasPlayedTest(0) being true
-	 */
-	@Test
-	public void hasPlayedTest2() {
-
-		boolean actual = animation.hasPlayed(0);
-		
-		assertTrue(actual);
-	}
-	
-	/**
-	 * Tests hasPlayedOnce method of Animation class
-	 * hasPlayedTest(2) being false
-	 */
-	@Test
-	public void hasPlayedTest3() {
-
-		boolean actual = animation.hasPlayed(2);
-		
-		assertFalse(actual);
 	}
 	
 

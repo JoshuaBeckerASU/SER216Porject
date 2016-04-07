@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="AnimationTest" project="DiamondHunter" tests="4" started="4" failures="0" errors="0" ignored="0">
+  <testsuite name="tests.AnimationTest" time="0.0">
+    <testcase name="hasPlayedTest" classname="tests.AnimationTest" time="0.0"/>
+    <testcase name="hasPlayedOnceTest2" classname="tests.AnimationTest" time="0.0"/>
+    <testcase name="hasPlayedOnceTest" classname="tests.AnimationTest" time="0.0"/>
+    <testcase name="hasPlayedTest2" classname="tests.AnimationTest" time="0.0"/>
+  </testsuite>
+</testrun>
