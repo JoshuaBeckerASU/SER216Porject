@@ -1,6 +1,9 @@
+/**
+ * 
+ */
 package tests;
 
-import com.neet.DiamondHunter.Entity.*;
+import com.neet.DiamondHunter.Entity.Animation;
 import static org.junit.Assert.*;
 
 import org.junit.After;
@@ -9,41 +12,45 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-
-import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
-
-import com.neet.DiamondHunter.Manager.Content;
-import com.neet.DiamondHunter.Manager.JukeBox;
-import com.neet.DiamondHunter.TileMap.TileMap;
-
 /**
- * Class that performs unit tests on the Player class
+ * Class that performs unit tests on the Animation class
  * @author trevorforrey
- *
+ * 
  */
-public class PlayerTest {
+public class AnimationTest {
 	
-	private Player player;
+	private Animation animation;
 
+	/**
+	 * @throws java.lang.Exception
+	 */
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		System.out.println("Setting up Player test");
+		System.out.println("Setting up Animation test");
 	}
 
+	/**
+	 * @throws java.lang.Exception
+	 */
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
-		System.out.println("Tearing down Player test");
+		System.out.println("Tearing down Animation test");
 	}
 
+	/**
+	 * @throws java.lang.Exception
+	 */
 	@Before
 	public void setUp() throws Exception {
-		//player = new Player()
+		animation = new Animation();
 	}
 
+	/**
+	 * @throws java.lang.Exception
+	 */
 	@After
 	public void tearDown() throws Exception {
-		player = null;
+		animation = null;
 	}
 
 	@Test

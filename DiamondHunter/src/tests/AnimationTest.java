@@ -3,6 +3,7 @@
  */
 package tests;
 
+import com.neet.DiamondHunter.Entity.*;
 import static org.junit.Assert.*;
 
 import org.junit.After;
@@ -12,16 +13,20 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
+ * Class that performs unit tests on the Animation class
  * @author trevorforrey
- *
+ * 
  */
 public class AnimationTest {
+	
+	private Animation animation;
 
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+		System.out.println("Setting up Animation test");
 	}
 
 	/**
@@ -29,6 +34,7 @@ public class AnimationTest {
 	 */
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
+		System.out.println("Tearing down Animation test");
 	}
 
 	/**
@@ -36,6 +42,7 @@ public class AnimationTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
+		animation = new Animation();
 	}
 
 	/**
@@ -43,6 +50,7 @@ public class AnimationTest {
 	 */
 	@After
 	public void tearDown() throws Exception {
+		animation = null;
 	}
 
 	@Test
