@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="DiamondTest" project="DiamondHunter" tests="2" started="2" failures="0" errors="0" ignored="0">
+  <testsuite name="tests.DiamondTest" time="0.913">
+    <testcase name="addChangeTest2" classname="tests.DiamondTest" time="0.912"/>
+    <testcase name="addChangeTestt" classname="tests.DiamondTest" time="0.001"/>
+  </testsuite>
+</testrun>

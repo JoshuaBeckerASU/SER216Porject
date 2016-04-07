@@ -65,31 +65,12 @@ public class PlayerTest {
 		tileMap = null;
 	}
 
-	/**
-	 * Tests collectedDiamond method of Player Class
-	 * collectedDiamond performing properly (result of 10)
-	 */
 	@Test
-	public void collectDiamondTest() {
+	public void test() {
 		for (int i = 0; i < 10; i++) {
 			player.collectedDiamond();
 		}
 		int expected = 10;
-		int actual = player.numDiamonds();
-		
-		assertEquals(expected, actual);
-	}
-	
-	/**
-	 * Tests collectedDiamond method of Player Class
-	 * collectedDiamond performing properly (result of 1)
-	 */
-	@Test
-	public void collectedDiamondTest2() {
-		
-		player.collectedDiamond();
-
-		int expected = 1;
 		int actual = player.numDiamonds();
 		
 		assertEquals(expected, actual);
