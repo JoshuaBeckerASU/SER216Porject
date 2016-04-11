@@ -28,6 +28,7 @@ public class TileMapMethodsTest {
 
 	@Before
 	public void setUp() throws Exception {
+		System.out.println("Loading maps");
 		m_TileMap.loadTiles("/Tilesets/testtileset.gif");
 		m_TileMap.loadMap("/Maps/testmap.map");
 	}
@@ -40,10 +41,18 @@ public class TileMapMethodsTest {
 	public void test() {
 		Assert.assertNotEquals(m_TileMap, null);
 		
+	}
+	@Test
+	public void testSize()
+	{
 		//Testing Tile size set correctly
 		Assert.assertEquals(m_TileMap.getTileSize(), 16);
 		Assert.assertNotEquals(m_TileMap.getTileSize(), 25);
-		
+	}
+	
+	@Test
+	public void testLoad()
+	{
 		//Testing Tile Map was loaded properly
 		Assert.assertEquals(m_TileMap.getWidth(), 640);
 		Assert.assertEquals(m_TileMap.getHeight(), 640);
@@ -57,5 +66,4 @@ public class TileMapMethodsTest {
 		Assert.assertNotEquals(m_TileMap.getNumCols(), 80);
 		Assert.assertNotEquals(m_TileMap.getNumRows(), 80);
 	}
-
 }
