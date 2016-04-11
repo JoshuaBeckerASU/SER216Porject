@@ -36,6 +36,7 @@ public class TileMethodsTest {
 
 	@Test
 	public void test() {
+		//testing the tile was correctly setup and has proper values
 		Assert.assertNotEquals(m_Tile.getImage(),null);
 		Assert.assertEquals(m_Tile.getType(), Tile.NORMAL);
 	}
