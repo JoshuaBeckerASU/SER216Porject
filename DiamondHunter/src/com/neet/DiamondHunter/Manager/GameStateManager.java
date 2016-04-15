@@ -90,5 +90,10 @@ public class GameStateManager {
 			gameStates[currentState].draw(g);
 		}
 	}
+	//JB added to resize
+	public int getGameState()
+	{
+		return currentState;
+	}
 	
 }

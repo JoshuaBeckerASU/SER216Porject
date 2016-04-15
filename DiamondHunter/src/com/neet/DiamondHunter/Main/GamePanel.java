@@ -27,7 +27,11 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 	public static final int HEIGHT = 128;
 	public static final int HEIGHT2 = HEIGHT + 16;
 	public static final int SCALE = 3;
+	public static final int HEIGHTOFFSET = 38;// offset for toolbar
 	
+	//JB added toolbar
+	public static ToolBar s_ToolBar;
+
 	// game loop stuff
 	private Thread thread;
 	private boolean running;
@@ -43,9 +47,13 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 	
 	// constructor
 	public GamePanel() {
+		
 		setPreferredSize(new Dimension(WIDTH * SCALE, HEIGHT2 * SCALE));
 		setFocusable(true);
 		requestFocus();
+		s_ToolBar = new ToolBar("ToolBar", gsm, this);
+		s_ToolBar.setVisible(false);
+		add(s_ToolBar);
 	}
 	
 	// ready to display
@@ -114,7 +122,16 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 	// copy buffer to screen
 	private void drawToScreen() {
 		Graphics g2 = getGraphics();
-		g2.drawImage(image, 0, 0, WIDTH * SCALE, HEIGHT2 * SCALE, null);
+		if(gsm.getGameState() == GameStateManager.PLAY)//for toolbar
+		{
+			g2.drawImage(image, 0, HEIGHTOFFSET, WIDTH * SCALE, HEIGHT2 * SCALE - HEIGHTOFFSET, null);
+		}
+		else
+		{
+			g2.drawImage(image, 0, 0, WIDTH * SCALE, HEIGHT2 * SCALE + HEIGHTOFFSET, null);
+			
+		}
+			
 		g2.dispose();
 	}
 	
@@ -126,5 +143,4 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 	public void keyReleased(KeyEvent key) {
 		Keys.keySet(key.getKeyCode(), false);
 	}
-	
 }

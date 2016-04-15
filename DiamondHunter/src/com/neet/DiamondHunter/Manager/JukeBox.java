@@ -17,6 +17,8 @@ import javax.sound.sampled.FloatControl;
 public class JukeBox {
 	
 	private static HashMap<String, Clip> clips;
+	//JB ADDED current Song.
+	private static String currentSong;
 	private static int gap;
 	
 	// Creates new clips HashMap.
@@ -56,10 +58,12 @@ public class JukeBox {
 	}
 	
 	public static void play(String s) {
+		currentSong = s;
 		play(s, gap);
 	}
 	
 	public static void play(String s, int i) {
+		currentSong = s;
 		Clip c = clips.get(s);
 		if(c == null) return;
 		if(c.isRunning()) c.stop();
@@ -121,6 +125,14 @@ public class JukeBox {
 		if(c == null) return;
 		FloatControl vol = (FloatControl) c.getControl(FloatControl.Type.MASTER_GAIN);
 		vol.setValue(f);
+	}
+	/**
+	 * JB: added this to get the current song for muting.
+	 * @return the current song
+	 */
+	public static String getCurrentSong()
+	{
+		return currentSong;
 	}
 	
 	public static boolean isPlaying(String s) {

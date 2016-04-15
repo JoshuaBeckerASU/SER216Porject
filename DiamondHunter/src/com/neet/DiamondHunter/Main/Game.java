@@ -4,17 +4,23 @@
 
 package com.neet.DiamondHunter.Main;
 
+import java.awt.Color;
+import java.awt.GridLayout;
+
 import javax.swing.JFrame;
 
 public class Game {
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) 
+	{
 		
 		JFrame window = new JFrame("Diamond Hunter");
-		
+		window.setLayout(new GridLayout(1,1,0,0));
 		window.add(new GamePanel());
 		
 		window.setResizable(false);
+		window.setBackground(Color.BLACK);
+
 		window.pack();
 		
 		window.setLocationRelativeTo(null);

@@ -60,7 +60,7 @@ public class PlayState extends GameState {
 	}
 	
 	public void init() {
-		
+		GamePanel.s_ToolBar.setVisible(true);
 		// create lists
 		diamonds = new ArrayList<Diamond>();
 		sparkles = new ArrayList<Sparkle>();
