@@ -1,21 +1,21 @@
 package com.neet.DiamondHunter.Main;
 
-import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Insets;
-import java.awt.MenuItem;
-import java.awt.PopupMenu;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JToolBar;
 import javax.swing.plaf.basic.BasicComboPopup;
 import javax.swing.plaf.basic.ComboPopup;
 import javax.swing.plaf.metal.MetalComboBoxUI;
 
+import com.neet.DiamondHunter.GameState.PlayState;
 import com.neet.DiamondHunter.Manager.GameStateManager;
 import com.neet.DiamondHunter.Manager.JukeBox;
 
@@ -57,8 +57,8 @@ public class ToolBar extends JToolBar
 		add(button);
 		
 		//Adding New Game Button
-		button = new JButton("New Game");
-		button.setActionCommand("NewGame");
+		button = new JButton("Main Menu");
+		button.setActionCommand("MainMenu");
 		button.addActionListener(new ButtonListener());
 		add(button);
 		
@@ -85,6 +85,10 @@ public class ToolBar extends JToolBar
 		this.setFloatable(false);
 		this.setFocusable(false);
 		this.setBackground(java.awt.Color.BLACK);
+		FlowLayout layout = new FlowLayout();
+		layout.setVgap(0);
+		layout.setHgap(15);
+		this.setLayout(layout);
 		this.setMargin(new Insets(0,30,0,30));
 		
 	}
@@ -142,19 +146,29 @@ public class ToolBar extends JToolBar
 			String command = com.getActionCommand();
 			switch(command)
 			{
-				case "Help":
+				case "Help": 
+							if(!gsm.isPaused())
+								gsm.setPaused(true);
+							else
+								gsm.setPaused(false);
 					break;
-				case "NewGame": //gsm.setState(GameStateManager.MENU);
+				case "MainMenu": 
+								gsm.setState(GameStateManager.MENU);
+								JukeBox.stop("music1");
+								GamePanel.s_ToolBar.setVisible(false);
 					break;
-				case "Pause": gsm.setPaused(true);
+				case "Pause": 
+								gsm.setPaused(true);
 					break;
-				case "MainMenu": //gsm.setState(GameStateManager.MENU);
+				case "Mute": 
+								JukeBox.setVolume("music1", 100);
 					break;
-				case "Mute": JukeBox.setVolume("music1", 100);
+				case "UnMute":
+								JukeBox.setVolume(JukeBox.getCurrentSong(), 0);
 					break;
-				case "UnMute":JukeBox.setVolume(JukeBox.getCurrentSong(), 0);
-					break;
-				default: JOptionPane.showMessageDialog(gp, "Unknown Command", "Unknown Command", JOptionPane.PLAIN_MESSAGE);
+					
+				default: 
+					JOptionPane.showMessageDialog(gp, "Unknown Command", "Unknown Command", JOptionPane.PLAIN_MESSAGE);
 					break;
 			}
 			gp.requestFocus();

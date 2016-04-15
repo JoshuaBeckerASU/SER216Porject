@@ -14,6 +14,7 @@ import com.neet.DiamondHunter.GameState.IntroState;
 import com.neet.DiamondHunter.GameState.MenuState;
 import com.neet.DiamondHunter.GameState.PauseState;
 import com.neet.DiamondHunter.GameState.PlayState;
+import com.neet.DiamondHunter.Main.GamePanel;
 
 
 public class GameStateManager {
@@ -56,6 +57,9 @@ public class GameStateManager {
 			gameStates[i].init();
 		}
 		else if(i == PLAY) {
+			//---------------UPDATE--------------
+			GamePanel.s_ToolBar.repaint();
+			//-----------------------------------
 			gameStates[i] = new PlayState(this);
 			gameStates[i].init();
 		}
@@ -90,10 +94,14 @@ public class GameStateManager {
 			gameStates[currentState].draw(g);
 		}
 	}
-	//JB added to resize
+	//---------------Update----------------
 	public int getGameState()
 	{
 		return currentState;
 	}
-	
+	public boolean isPaused()
+	{
+		return this.paused;
+	}
+	//--------------------------------------
 }

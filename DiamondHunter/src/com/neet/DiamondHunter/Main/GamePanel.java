@@ -58,11 +58,6 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 		//----------------------------------------
 		setLayout(layout);
 		requestFocus();
-		//---------------Update-------------------
-		s_ToolBar = new ToolBar("ToolBar", gsm, this);
-		s_ToolBar.setVisible(false);
-		add(s_ToolBar);
-		//----------------------------------------
 	}
 	
 	// ready to display
@@ -77,9 +72,13 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 	
 	// run new thread
 	public void run() {
-		
 		init();
-		
+		//---------------Update-------------------
+		s_ToolBar = new ToolBar("ToolBar", gsm, this);
+		s_ToolBar.setVisible(false);
+		add(s_ToolBar);
+		s_ToolBar.repaint();
+		//----------------------------------------
 		long start;
 		long elapsed;
 		long wait;

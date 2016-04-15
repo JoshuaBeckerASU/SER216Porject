@@ -26,6 +26,10 @@ public class PauseState extends GameState {
 		
 		Content.drawString(g, "paused", 40, 30);
 		
+		//--------------------UPDATE-----------------------
+		Content.drawString(g, "end: return", 28, 54);
+		Content.drawString(g, "to Game", 68, 62);
+		//-------------------------------------------------
 		Content.drawString(g, "arrow", 12, 76);
 		Content.drawString(g, "keys", 16, 84);
 		Content.drawString(g, ": move", 52, 80);
