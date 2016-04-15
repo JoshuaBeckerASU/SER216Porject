@@ -14,7 +14,7 @@ import java.awt.event.KeyEvent;
 
 public class Keys {
 	
-	public static final int NUM_KEYS = 9;
+	public static final int NUM_KEYS = 9;// UPDATE
 	
 	public static boolean keyState[] = new boolean[NUM_KEYS];
 	public static boolean prevKeyState[] = new boolean[NUM_KEYS];
@@ -38,7 +38,7 @@ public class Keys {
 		else if(i == KeyEvent.VK_ENTER) keyState[ENTER] = b;
 		else if(i == KeyEvent.VK_ESCAPE) keyState[ESCAPE] = b;
 		else if(i == KeyEvent.VK_F1) keyState[F1] = b;
-		else keyState[ANYKEY] = b;//if any key is pressed set flag
+		else keyState[ANYKEY] = b;//if any key is pressed set flag UPDATE
 	}
 	
 	public static void update() {

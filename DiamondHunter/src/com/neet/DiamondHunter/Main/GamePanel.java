@@ -28,7 +28,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 	public static final int HEIGHT = 128;
 	public static final int HEIGHT2 = HEIGHT + 16;
 	public static final int SCALE = 3;
-	public static final int HEIGHTOFFSET = 30;// offset for toolbar
+	public static final int HEIGHTOFFSET = 30;// offset for toolbar UPDATE
 	
 	//JB added toolbar
 	public static ToolBar s_ToolBar;
@@ -55,12 +55,14 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 		FlowLayout layout = new FlowLayout();
 		layout.setHgap(0);
 		layout.setVgap(0);
-		//-------------------------------------
+		//----------------------------------------
 		setLayout(layout);
 		requestFocus();
+		//---------------Update-------------------
 		s_ToolBar = new ToolBar("ToolBar", gsm, this);
 		s_ToolBar.setVisible(false);
 		add(s_ToolBar);
+		//----------------------------------------
 	}
 	
 	// ready to display
@@ -129,6 +131,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 	// copy buffer to screen
 	private void drawToScreen() {
 		Graphics g2 = getGraphics();
+		//-------------------------Update--------------------------
 		if(gsm.getGameState() == GameStateManager.PLAY)//for toolbar
 		{
 			g2.drawImage(image, 0, HEIGHTOFFSET, WIDTH * SCALE, HEIGHT2 * SCALE - HEIGHTOFFSET, null);
@@ -138,7 +141,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 			g2.drawImage(image, 0, 0, WIDTH * SCALE, HEIGHT2 * SCALE + HEIGHTOFFSET, null);
 			
 		}
-			
+		//----------------------------------------------------------
 		g2.dispose();
 	}
 	
