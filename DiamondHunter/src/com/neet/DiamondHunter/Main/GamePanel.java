@@ -6,6 +6,7 @@
 package com.neet.DiamondHunter.Main;
 
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
@@ -27,7 +28,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 	public static final int HEIGHT = 128;
 	public static final int HEIGHT2 = HEIGHT + 16;
 	public static final int SCALE = 3;
-	public static final int HEIGHTOFFSET = 38;// offset for toolbar
+	public static final int HEIGHTOFFSET = 30;// offset for toolbar
 	
 	//JB added toolbar
 	public static ToolBar s_ToolBar;
@@ -50,6 +51,12 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 		
 		setPreferredSize(new Dimension(WIDTH * SCALE, HEIGHT2 * SCALE));
 		setFocusable(true);
+		// ---------------Update------------------
+		FlowLayout layout = new FlowLayout();
+		layout.setHgap(0);
+		layout.setVgap(0);
+		//-------------------------------------
+		setLayout(layout);
 		requestFocus();
 		s_ToolBar = new ToolBar("ToolBar", gsm, this);
 		s_ToolBar.setVisible(false);
