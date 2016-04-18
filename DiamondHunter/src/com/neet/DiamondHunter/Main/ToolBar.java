@@ -1,26 +1,32 @@
 package com.neet.DiamondHunter.Main;
 
+import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Image;
 import java.awt.Insets;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JToolBar;
+import javax.swing.plaf.ButtonUI;
 import javax.swing.plaf.basic.BasicComboPopup;
 import javax.swing.plaf.basic.ComboPopup;
 import javax.swing.plaf.metal.MetalComboBoxUI;
 
-import com.neet.DiamondHunter.GameState.PlayState;
 import com.neet.DiamondHunter.Manager.GameStateManager;
 import com.neet.DiamondHunter.Manager.JukeBox;
 
 /**
- * added for in game toolbar
+ * added for in game tool bar
  * @author Joshua Becker
  * PopUpMetalComboBox found: http://www.coderanch.com/t/338399/GUI/java/Java-drop-JComboBox
  */
@@ -51,15 +57,25 @@ public class ToolBar extends JToolBar
 	private void designToolBar()
 	{
 		// Set up Help button
-		JButton button = new JButton("Help");
+		JButton button = new JButton("");
 		button.setActionCommand("Help");
 		button.addActionListener(new ButtonListener());
+		button.setContentAreaFilled(false);
+		button.setBorder(null);
+		button.setRolloverEnabled(false);
+		button.setIcon(loadButton("HelpButton"));
+		button.setPreferredSize(new Dimension(80,30));
 		add(button);
 		
 		//Adding New Game Button
-		button = new JButton("Main Menu");
+		button = new JButton("");
 		button.setActionCommand("MainMenu");
 		button.addActionListener(new ButtonListener());
+		button.setContentAreaFilled(false);
+		button.setBorder(null);
+		button.setRolloverEnabled(false);
+		button.setIcon(loadButton("MainMenuButton"));
+		button.setPreferredSize(new Dimension(80,30));
 		add(button);
 		
 		//Adding Music Options
@@ -87,9 +103,9 @@ public class ToolBar extends JToolBar
 		this.setBackground(java.awt.Color.BLACK);
 		FlowLayout layout = new FlowLayout();
 		layout.setVgap(0);
-		layout.setHgap(15);
+		layout.setHgap(2);
 		this.setLayout(layout);
-		this.setMargin(new Insets(0,30,0,30));
+		this.setMargin(new Insets(0,0,0,0));
 		
 	}
 	/**
@@ -133,6 +149,28 @@ public class ToolBar extends JToolBar
 			}
 			gp.requestFocus();
 		}
+	}
+	/**
+	 * 
+	 * @param name name of button to load
+	 * @return
+	 */
+	private Icon loadButton(String name)
+	{
+		String path = "";
+		path = System.getProperty("user.dir");
+		path = path.replace('\\','/');
+		path = path +  "/Resources/Buttons/" + name + ".png";
+		try 
+		{
+		Image img = ImageIO.read(new File(path));
+		return new ImageIcon(img);
+		
+		} catch (IOException ex) 
+		{
+			System.out.println("FIle Not Found\nFile Path: " + path);
+		}
+			return null;
 	}
 	/**
 	 * 
