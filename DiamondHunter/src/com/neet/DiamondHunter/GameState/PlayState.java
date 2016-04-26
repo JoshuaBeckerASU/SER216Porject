@@ -184,6 +184,23 @@ public class PlayState extends GameState {
 		item.setTilePosition(12, 4);
 		items.add(item);
 		
+		item = new Item(tileMap);
+		item.setType(Item.POTION);
+		item.setTilePosition(28, 33);
+		items.add(item);
+		item = new Item(tileMap);
+		item.setType(Item.POTION);
+		item.setTilePosition(14, 26);
+		items.add(item);
+		item = new Item(tileMap);
+		item.setType(Item.POTION);
+		item.setTilePosition(37, 11);
+		items.add(item);
+		item = new Item(tileMap);
+		item.setType(Item.POTION);
+		item.setTilePosition(5, 9);
+		items.add(item);
+		
 	}
 	
 	public void update() {

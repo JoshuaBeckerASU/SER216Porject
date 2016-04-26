@@ -35,7 +35,7 @@ public class Item extends Entity{
 			sprite = Content.ITEMS[1][1];
 		}
 		else if (type == POTION) {
-			sprite = Content.ITEMS[1][1];
+			sprite = Content.ITEMS[1][2];
 		}
 	}
 	

@@ -83,7 +83,6 @@ public class Player extends Entity {
 	
 	public void gotBoat() { hasBoat = true; tileMap.replace(22, 4); }
 	public void gotAxe() { hasAxe = true; }
-	public void gotPotion(){ moveSpeed += .5; }
 	public boolean hasBoat() { return hasBoat; }
 	public boolean hasAxe() { return hasAxe; }
 	
@@ -187,6 +186,10 @@ public class Player extends Entity {
 	// Draw Player.
 	public void draw(Graphics2D g) {
 		super.draw(g);
+	}
+
+	public void gotPotion() {
+		moveSpeed ++;
 	}
 	
 }
