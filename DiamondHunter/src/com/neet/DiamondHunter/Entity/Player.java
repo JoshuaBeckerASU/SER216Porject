@@ -153,7 +153,7 @@ public class Player extends Entity {
 				setAnimation(DOWN, downSprites, 10);
 			}
 		}
-		if(left) {
+		else if(left) {
 			if(onWater && currentAnimation != LEFTBOAT) {
 				setAnimation(LEFTBOAT, leftBoatSprites, 10);
 			}
@@ -161,7 +161,7 @@ public class Player extends Entity {
 				setAnimation(LEFT, leftSprites, 10);
 			}
 		}
-		if(right) {
+		else if(right) {
 			if(onWater && currentAnimation != RIGHTBOAT) {
 				setAnimation(RIGHTBOAT, rightBoatSprites, 10);
 			}
@@ -169,13 +169,16 @@ public class Player extends Entity {
 				setAnimation(RIGHT, rightSprites, 10);
 			}
 		}
-		if(up) {
+		else if(up) {
 			if(onWater && currentAnimation != UPBOAT) {
 				setAnimation(UPBOAT, upBoatSprites, 10);
 			}
 			else if(!onWater && currentAnimation != UP) {
 				setAnimation(UP, upSprites, 10);
 			}
+		}else{
+			BufferedImage[] tmp = {animation.getImage()};
+			setAnimation(currentAnimation,tmp,10);
 		}
 		
 		// update position
@@ -189,7 +192,7 @@ public class Player extends Entity {
 	}
 
 	public void gotPotion() {
-		moveSpeed ++;
+		moveSpeed++;
 	}
 	
 }
