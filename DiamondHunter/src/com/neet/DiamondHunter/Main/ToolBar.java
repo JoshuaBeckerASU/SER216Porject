@@ -87,7 +87,7 @@ public class ToolBar extends JToolBar
 		add(comboBox);
 		
 		// Set up button to add printer
-		comboBox = new JComboBox<String>(new String [] {"Change Song","bgmusic", "finish"});
+		comboBox = new JComboBox<String>(new String [] {"Change Song","Song One", "Song Two"});
 		comboBox.setActionCommand("ChangeSong");
 		comboBox.addActionListener(new ComboBoxListener(comboBox));
 		comboBox.setUI(new PopUpMetalComboBoxUI());
@@ -123,10 +123,10 @@ public class ToolBar extends JToolBar
 				case "ChangeSong":
 					switch((String) target.getSelectedItem())
 					{
-						case "bgmusic": JukeBox.stop(JukeBox.getCurrentSong());
+						case "Song One": JukeBox.stop(JukeBox.getCurrentSong());
 										JukeBox.loop("music1");
 										break;
-						case "finish": 	JukeBox.stop(JukeBox.getCurrentSong());
+						case "Song Two": 	JukeBox.stop(JukeBox.getCurrentSong());
 										JukeBox.loop("music2");
 										break;
 					}
