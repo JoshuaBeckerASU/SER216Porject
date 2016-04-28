@@ -68,7 +68,7 @@ public class PlayState extends GameState {
 		
 		// load map
 		tileMap = new TileMap(16);
-		tileMap.loadTiles("/Tilesets/testtilesetNew.gif");
+		tileMap.loadTiles("/Tilesets/testtileset.gif");
 		tileMap.loadMap("/Maps/testmap.map");
 		
 		// create player
