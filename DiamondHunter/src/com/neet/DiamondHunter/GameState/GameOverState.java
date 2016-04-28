@@ -71,7 +71,18 @@ public class GameOverState extends GameState {
 	}
 	
 	public void handleInput() {
-		if(Keys.isPressed(Keys.ANYKEY))
+		boolean input = false;
+		if(Keys.isPressed(Keys.ANYKEY))input = true;
+		if(Keys.isDown(Keys.LEFT)) input = true;
+		if(Keys.isDown(Keys.RIGHT)) input = true;
+		if(Keys.isDown(Keys.UP)) input = true;
+		if(Keys.isDown(Keys.DOWN)) input = true;
+		if(Keys.isPressed(Keys.SPACE)) input = true;
+		if(Keys.isPressed(Keys.ENTER)) input = true;
+		if(Keys.isPressed(Keys.ESCAPE)) input = true;
+		if(Keys.isPressed(Keys.F1))input = true;
+		
+		if(input)
 		{
 			gsm.setState(GameStateManager.MENU);
 			JukeBox.play("collect");
