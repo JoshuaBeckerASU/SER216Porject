@@ -95,8 +95,8 @@ public class PlayState extends GameState {
 		JukeBox.load("/Music/bgmusic.mp3", "music1");
 		JukeBox.setVolume("music1", -10);
 		JukeBox.loop("music1", 1000, 1000, JukeBox.getFrames("music1") - 1000);
-		JukeBox.load("/Music/finish.mp3", "finish");
-		JukeBox.setVolume("finish", -10);
+		JukeBox.load("/Music/finish.mp3", "music2");
+		JukeBox.setVolume("music2", -10);
 		
 		// load sfx
 		JukeBox.load("/SFX/collect.wav", "collect");

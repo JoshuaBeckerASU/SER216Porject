@@ -79,22 +79,16 @@ public class ToolBar extends JToolBar
 		add(button);
 		
 		//Adding Music Options
-		String [] musicOptions = new String [14];
 		
-		musicOptions[0] = "Music Options"; musicOptions[1] = "Mute"; musicOptions[2] = "UnMute";
-		
-		for(int i = 0; i < 10;i++)
-			musicOptions[i+3] = ""+i;
-		
-	    JComboBox<String> comboBox = new JComboBox<String>(musicOptions);
+	    JComboBox<String> comboBox = new JComboBox<String>(new String [] {"Music Options","Mute", "UnMute"});
 		comboBox.setActionCommand("MusicOptions");
 		comboBox.addActionListener(new ComboBoxListener(comboBox));
 		comboBox.setUI(new PopUpMetalComboBoxUI());
 		add(comboBox);
 		
 		// Set up button to add printer
-		comboBox = new JComboBox<String>(new String [] {"Change Song","Original", "new Music"});
-		comboBox.setActionCommand("Change Song");
+		comboBox = new JComboBox<String>(new String [] {"Change Song","bgmusic", "finish"});
+		comboBox.setActionCommand("ChangeSong");
 		comboBox.addActionListener(new ComboBoxListener(comboBox));
 		comboBox.setUI(new PopUpMetalComboBoxUI());
 		add(comboBox);
@@ -126,22 +120,31 @@ public class ToolBar extends JToolBar
 			String command = com.getActionCommand();
 			switch(command)
 			{
-				case "Change Music": //TODO Change music here
+				case "ChangeSong":
+					switch((String) target.getSelectedItem())
+					{
+						case "bgmusic": JukeBox.stop(JukeBox.getCurrentSong());
+										JukeBox.loop("music1");
+										break;
+						case "finish": 	JukeBox.stop(JukeBox.getCurrentSong());
+										JukeBox.loop("music2");
+										break;
+					}
 					break;
 				case "MusicOptions": 
 						switch((String)target.getSelectedItem())
 						{
 						case "Mute":												
-							JukeBox.stop("music1");
-							target.setSelectedIndex(0);
-							break;
+										JukeBox.stop(JukeBox.getCurrentSong());
+										target.setSelectedIndex(0);
+										break;
 						case "UnMute":
-							JukeBox.loop("music1");
-							target.setSelectedIndex(0);
-							break;
+										JukeBox.loop(JukeBox.getCurrentSong());
+										target.setSelectedIndex(0);
+										break;
 						default: 
-							JOptionPane.showMessageDialog(gp, "Unknown Command", "Unknown Command", JOptionPane.PLAIN_MESSAGE);
-							break;
+										JOptionPane.showMessageDialog(gp, "Unknown Command", "Unknown Command", JOptionPane.PLAIN_MESSAGE);
+										break;
 						}
 					break;
 				default: JOptionPane.showMessageDialog(gp, "Unknown Command", "Unknown Command", JOptionPane.PLAIN_MESSAGE);
@@ -195,16 +198,6 @@ public class ToolBar extends JToolBar
 								JukeBox.stop("music1");
 								GamePanel.s_ToolBar.setVisible(false);
 					break;
-				case "Pause": 
-								gsm.setPaused(true);
-					break;
-				case "Mute": 
-								JukeBox.setVolume("music1", 100);
-					break;
-				case "UnMute":
-								JukeBox.setVolume(JukeBox.getCurrentSong(), 0);
-					break;
-					
 				default: 
 					JOptionPane.showMessageDialog(gp, "Unknown Command", "Unknown Command", JOptionPane.PLAIN_MESSAGE);
 					break;

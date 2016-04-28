@@ -58,12 +58,10 @@ public class JukeBox {
 	}
 	
 	public static void play(String s) {
-		currentSong = s;
 		play(s, gap);
 	}
 	
 	public static void play(String s, int i) {
-		currentSong = s;
 		Clip c = clips.get(s);
 		if(c == null) return;
 		if(c.isRunning()) c.stop();
@@ -88,18 +86,22 @@ public class JukeBox {
 	}
 	
 	public static void loop(String s) {
+		currentSong = s;
 		loop(s, gap, gap, clips.get(s).getFrameLength() - 1);
 	}
 	
 	public static void loop(String s, int frame) {
+		currentSong = s;
 		loop(s, frame, gap, clips.get(s).getFrameLength() - 1);
 	}
 	
 	public static void loop(String s, int start, int end) {
+		currentSong = s;
 		loop(s, gap, start, end);
 	}
 	
 	public static void loop(String s, int frame, int start, int end) {
+		currentSong = s;
 		Clip c = clips.get(s);
 		if(c == null) return;
 		if(c.isRunning()) c.stop();
