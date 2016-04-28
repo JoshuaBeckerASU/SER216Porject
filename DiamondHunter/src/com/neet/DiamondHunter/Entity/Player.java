@@ -108,20 +108,39 @@ public class Player extends Entity {
 	// of the Player will be chopped down.
 	public void setAction() {
 		if(hasAxe) {
-			if(currentAnimation == UP && tileMap.getIndex(rowTile - 1, colTile) == 21) {
-				tileMap.setTile(rowTile - 1, colTile, 1);
+			
+			int index = tileMap.getIndex(rowTile - 1, colTile);
+			if(currentAnimation == UP && (index == 21 || index == 26)) {
+				if(index == 21)
+					tileMap.setTile(rowTile - 1, colTile, 11);
+				else
+					tileMap.setTile(rowTile - 1, colTile, 17);
 				JukeBox.play("tilechange");
 			}
-			if(currentAnimation == DOWN && tileMap.getIndex(rowTile + 1, colTile) == 21) {
-				tileMap.setTile(rowTile + 1, colTile, 1);
+			
+			index = tileMap.getIndex(rowTile + 1, colTile);
+			if(currentAnimation == DOWN && (index == 21 || index == 26)) {
+				if(index == 21)
+					tileMap.setTile(rowTile+1, colTile, 11);
+				else
+					tileMap.setTile(rowTile + 1, colTile, 17);
 				JukeBox.play("tilechange");
 			}
-			if(currentAnimation == LEFT && tileMap.getIndex(rowTile, colTile - 1) == 21) {
-				tileMap.setTile(rowTile, colTile - 1, 1);
+			
+			index = tileMap.getIndex(rowTile, colTile-1);
+			if(currentAnimation == LEFT && (index == 21 || index == 26)) {
+				if(index == 21)
+					tileMap.setTile(rowTile, colTile-1, 11);
+				else
+					tileMap.setTile(rowTile, colTile-1, 17);
 				JukeBox.play("tilechange");
 			}
-			if(currentAnimation == RIGHT && tileMap.getIndex(rowTile, colTile + 1) == 21) {
-				tileMap.setTile(rowTile, colTile + 1, 1);
+			index = tileMap.getIndex(rowTile , colTile+1);
+			if(currentAnimation == RIGHT && (index == 21 || index == 26)) {
+				if(index == 21)
+					tileMap.setTile(rowTile, colTile+1, 11);
+				else
+					tileMap.setTile(rowTile, colTile+1, 17);
 				JukeBox.play("tilechange");
 			}
 		}
