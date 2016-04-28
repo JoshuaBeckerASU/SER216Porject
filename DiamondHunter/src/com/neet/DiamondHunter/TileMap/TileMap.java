@@ -51,7 +51,7 @@ public class TileMap {
 	
 	public TileMap(int tileSize) {
 		this.tileSize = tileSize;
-		numRowsToDraw = GamePanel.HEIGHT / tileSize*3 + 2;
+		numRowsToDraw = GamePanel.HEIGHT / tileSize + 2;
 		numColsToDraw = GamePanel.WIDTH / tileSize + 2;
 		speed = 4;
 	}
@@ -64,7 +64,8 @@ public class TileMap {
 				getClass().getResourceAsStream(s)
 			);
 			numTilesAcross = tileset.getWidth() / tileSize;
-			tiles = new Tile[2][numTilesAcross];
+			System.out.println("num tiles across"+numTilesAcross);
+			tiles = new Tile[5][numTilesAcross];
 			
 			BufferedImage subimage;
 			for(int col = 0; col < numTilesAcross; col++) {
@@ -81,7 +82,31 @@ public class TileMap {
 							tileSize,
 							tileSize
 						);
-				tiles[1][col] = new Tile(subimage, Tile.BLOCKED);
+				tiles[1][col] = new Tile(subimage, Tile.NORMAL);
+				subimage = tileset.getSubimage(
+						col * tileSize,
+						tileSize,
+						tileSize,
+						tileSize
+					);
+				tiles[2][col] = new Tile(subimage, Tile.BLOCKED);
+				subimage = tileset.getSubimage(
+						col * tileSize,
+						tileSize+tileSize,
+						tileSize,
+						tileSize
+					);
+				tiles[3][col] = new Tile(subimage, Tile.NORMAL);
+				subimage = tileset.getSubimage(
+						col * tileSize,
+						tileSize+tileSize+tileSize,
+						tileSize,
+						tileSize
+					);
+				if(col == 0 || col == 1)
+					tiles[4][col] = new Tile(subimage, Tile.BLOCKED);
+				else
+					tiles[4][col] = new Tile(subimage, Tile.NORMAL);
 			}
 			
 		}
@@ -118,6 +143,7 @@ public class TileMap {
 				String line = br.readLine();
 				String[] tokens = line.split(delims);
 				for(int col = 0; col < numCols; col++) {
+					System.out.println("row:" + row + "col:" + col + "tokens: " + tokens[col]);
 					map[row][col] = Integer.parseInt(tokens[col]);
 				}
 			}
@@ -222,8 +248,17 @@ public class TileMap {
 				if(map[row][col] == 0) continue;
 				
 				int rc = map[row][col];
-				int r = rc / numTilesAcross;
-				int c = rc % numTilesAcross;
+				int r = 0;
+				int c = 0;
+				if(rc < 20)
+				{
+					r = 0;
+					c = rc % numTilesAcross;
+				}else
+				{
+					r = rc / numTilesAcross;
+					c = rc % numTilesAcross;
+				}
 				
 				g.drawImage(
 					tiles[r][c].getImage(),
